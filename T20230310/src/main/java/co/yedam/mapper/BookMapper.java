@@ -12,4 +12,8 @@ public interface BookMapper {
 	public int insertBook(BookVO vo);
 	// 조회.
 	public BookVO selectBook(String bookCode);
+	
+	public int updateBook(BookVO vo);
+	
+	public BookVO searchBook(String search);
 }

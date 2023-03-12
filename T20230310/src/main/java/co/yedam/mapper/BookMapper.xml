@@ -5,7 +5,23 @@
 
 <mapper namespace="co.yedam.mapper.BookMapper">
  <select id="bookList" resultType="BookVO">
-  select * from bookstore_books order by book_Number
+  select * from book order by book_code
  </select>
+ 
+ <insert id="insertBook" >
+  insert into book values ( #{bookCode}, #{bookAuthor}, #{bookTitle}, #{bookPress}, #{bookDesc}, #{bookPrice}
+)
+ </insert>
 
-</mapper>
+ <select id="selectBook" resultType="BookVO">
+  select * from book where book_code = #{bookCode}
+ </select>
+ 
+  <insert id="updateBook" >
+  	update book set book_author = #{bookAuthor}, book_title = #{bookTitle}, book_press = #{bookPress}, book_desc = #{bookDesc}, book_price = #{bookPrice} where book_code = #{bookCode}
+ </insert>
+ 
+  <select id="searchBook" resultType="BookVO">
+  select * from book where book_title = #{search}
+ </select>
+</mapper>	

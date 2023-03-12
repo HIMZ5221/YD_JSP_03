@@ -11,4 +11,8 @@ public interface BookService {
 	public boolean addBook(BookVO vo);
 	// 도서조회
 	public BookVO getBookInfo(String bookCode);
+	
+	public boolean updateBook(BookVO vo);
+	
+	public BookVO searchBook(String search);
 }

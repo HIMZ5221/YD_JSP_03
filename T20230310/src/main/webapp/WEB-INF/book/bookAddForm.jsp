@@ -2,6 +2,16 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<% boolean result = (boolean) request.getAttribute("result"); %>
+
+<c:choose >
+	<c:when test="${result == true }">
+        <script>alert('Book insert cuccess !!!')</script>
+	</c:when>
+</c:choose>
+
 
 <head>
     <meta charset="utf-8" />
@@ -25,7 +35,6 @@
 <body>
     <!-- Navigation-->
     <jsp:include page="../includes/top.jsp"></jsp:include>
-
     <!-- Page Header-->
     <jsp:include page="../includes/header.jsp"></jsp:include>
 
@@ -33,31 +42,32 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-12 col-lg-10 col-xl-8">
+               	<form action="bookAdd.do" method="post">
                 <table class="table">
                     <tbody>
                         <tr>
                             <td>도서코드</td>
-                            <td><input type="text" name="book_code"></td>
+                            <td><input type="text" name="book_code" placeholder="도서코드" required="required"></td>
                         </tr>
                         <tr>
                             <td>저자</td>
-                            <td><input type="text" name="book_code"></td>
+                            <td><input type="text" name="book_author" placeholder="저자" required></td>
                         </tr>
                         <tr>
                             <td>도서명</td>
-                            <td><input type="text" name="book_code"></td>
+                            <td><input type="text" name="book_title" placeholder="도서명" required></td>
                         </tr>
                         <tr>
                             <td>출판사</td>
-                            <td><input type="text" name="book_code"></td>
+                            <td><input type="text" name="book_press" placeholder="출판사" required></td> 
                         </tr>
                         <tr>
                             <td>도서평</td>
-                            <td><textarea cols="30" rows="5" name="book_code"></textarea></td>
+                            <td><textarea cols="30" rows="5" name="book_desc" required></textarea></td>
                         </tr>
                         <tr>
                             <td>판매가</td>
-                            <td><input type="text" name="book_code"></td>
+                            <td><input type="text" name="book_price" placeholder="숫자만 입력" required></td>
                         </tr>
                         <tr>
                             <td align="center" colspan="2">
@@ -66,6 +76,7 @@
                         </tr>
                     </tbody>
                 </table>
+                </form>
             </div>
         </div>
     </div>

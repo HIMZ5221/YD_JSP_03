@@ -33,39 +33,48 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-12 col-lg-10 col-xl-8">
-                <table class="table">
+                <form method="post" action="bookUpdate.do">
+                <table class="table" >
                     <tbody>
                         <tr>
                             <td>도서코드</td>
-                            <td><input type="text" name="book_code" value="B20230301"></td>
+                            <td><input type="text" name="book_code" value="${bookCode}" readonly></td>
                         </tr>
                         <tr>
                             <td>저자</td>
-                            <td><input type="text" name="book_code" value="홍길동"></td>
+                            <td><input type="text" name="book_title" value="${bookAuthor}"></td>
                         </tr>
                         <tr>
                             <td>도서명</td>
-                            <td><input type="text" name="book_code" value="우리의 정의란?"></td>
+                            <td><input type="text" name="book_author" value="${bookTitle}"></td>
                         </tr>
                         <tr>
                             <td>출판사</td>
-                            <td><input type="text" name="book_code" value="정의출판사"></td>
+                            <td><input type="text" name="book_press" value="${bookPress}"></td>
                         </tr>
                         <tr>
                             <td>도서평</td>
-                            <td><textarea cols="30" rows="5" name="book_code">정의란 무엇인가...</textarea></td>
+                            <td><textarea cols="30" rows="5" name="book_desc">${bookDesc}</textarea></td>
                         </tr>
                         <tr>
                             <td>판매가</td>
-                            <td><input type="text" name="book_code" value="25,000원"></td>
+                            <td><input type="text" name="book_price" value="${bookPrice}">원</td>
                         </tr>
                         <tr>
                             <td align="center" colspan="2">
-                                <input class="btn btn-primary" type="button" value="수정">
-                                <input class="btn btn-warning" type="button" value="삭제"></td>
+	                            <input class="btn btn-primary" type="submit" value="수정">
+                                <input class="btn btn-warning" type="reset" value="삭제">
+	                            
+                                <!-- <button type="submit" data-oper="bookUpdate.do" class="btn btn-primary" value="수정"></button>
+                                <button type="submit" data-oper="remove" class="btn btn-warning" value="삭제"></button> -->
+                                
+                                <!-- <input class="btn btn-primary" type="submit" value="수정">
+                                <input class="btn btn-warning" type="reset" value="삭제"> -->
+                                </td>
                         </tr>
                     </tbody>
                 </table>
+                </form>
             </div>
         </div>
     </div>

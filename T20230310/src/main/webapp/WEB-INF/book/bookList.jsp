@@ -47,23 +47,24 @@
                     <thead>
                         <tr>
                             <th>BookCode</th>
-                            <th>Author</th>
                             <th>Title</th>
-                            <th>Stock</th>
+                            <th>Author</th>
+                            <th>Press</th>
+                            <th>Desc</th>
                             <th>Price</th>
-                            <th>Type</th>
                         </tr>
                     </thead>
                     <tbody>
                     
-				     <c:forEach var="book" items="${bookList }">                           <tr>
+				     <c:forEach var="book" items="${bookList }">
 				     	<tr>
-                            <td>${book.bookNumber} </td>
+                            <td><a href="bookInfo.do?dan=${book.bookCode}" >${book.bookCode}</a></td>
+                            <td>${book.bookTitle} </td>
                             <td>${book.bookAuthor} </td>
-                            <td>${book.bookName} </td>
-                            <td>${book.bookStock }</td>
+                            <td>${book.bookPress }</td>
+                            <td>${book.bookDesc }</td>
                             <td>${book.bookPrice }</td>
-                            <td>${book.bookType }</td>
+                        
                         </tr>
                      </c:forEach>
                      <tr>

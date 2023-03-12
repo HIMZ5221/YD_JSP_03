@@ -1,6 +1,5 @@
 package co.yedam.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -24,12 +23,40 @@ public class BookServiceMybatis implements BookService {
 
 	@Override
 	public boolean addBook(BookVO vo) { //등록.
+		int result = mapper.insertBook(vo);
+		if(result >= 1) {
+			System.out.println(result);
+			return true;
+		}
 		return false;
 	}
 
 	@Override
 	public BookVO getBookInfo(String bookCode) { //조회.
-		return null;
+		System.out.println("BookInfo 쿼리문에 들어가는 bookCode 입니다 = " + bookCode);
+		BookVO book = mapper.selectBook(bookCode);
+		
+		return book;
 	}
+
+	@Override
+	public boolean updateBook(BookVO vo) {
+		System.out.println("UpdateBook 쿼리문에 들어가는 객체의 title입니다" + vo.getBookTitle());
+		int result = mapper.updateBook(vo);
+		if(result >= 1) {
+			System.out.println(result);
+			return true;
+		}		return false;
+	}
+
+	@Override
+	public BookVO searchBook(String search) {
+		System.out.println("searchBook 쿼리문에 들어가는 객체의 date입니다" + search);
+		BookVO result = mapper.searchBook(search);
+		
+		return result;
+	}
+	
+	
 
 }

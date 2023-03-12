@@ -10,10 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.yedam.controller.BoodAddControl;
-import co.yedam.controller.BoodInfoControl;
+import co.yedam.controller.BookAddControl;
 import co.yedam.controller.BookAddForm;
+import co.yedam.controller.BookInfoControl;
 import co.yedam.controller.BookListControl;
+import co.yedam.controller.BookSearchControl;
+import co.yedam.controller.BookSearchForm;
+import co.yedam.controller.BookUpdateControl;
 
 public class FrontController extends HttpServlet {
 
@@ -32,8 +35,12 @@ public class FrontController extends HttpServlet {
 
 		map.put("/bookList.do", new BookListControl()); // 목록
 		map.put("/bookAddForm.do", new BookAddForm()); // 등록화면
-		map.put("/bookAdd.do", new BoodAddControl()); // 등록처리
-		map.put("/bookInfo.do", new BoodInfoControl()); // 상세보기
+		map.put("/bookAdd.do", new BookAddControl()); // 등록처리
+		map.put("/bookInfo.do", new BookInfoControl()); // 상세보기
+		
+		map.put("/bookUpdate.do", new BookUpdateControl());
+		map.put("/bookSearchForm.do", new BookSearchForm());
+		map.put("/bookSearchControl.do", new BookSearchControl());
 	}
 
 	@Override

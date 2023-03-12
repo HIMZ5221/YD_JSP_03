@@ -2,6 +2,11 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
+
+
 
 <head>
     <meta charset="utf-8" />
@@ -25,7 +30,6 @@
 <body>
     <!-- Navigation-->
     <jsp:include page="../includes/top.jsp"></jsp:include>
-
     <!-- Page Header-->
     <jsp:include page="../includes/header.jsp"></jsp:include>
 
@@ -33,35 +37,23 @@
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-12 col-lg-10 col-xl-8">
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="bookList.do">
-                            <h2 class="post-title">Book List 이동</h2>
-                            <h4 class="post-subtitle">도서이름, 가격, 평가 등을 볼 수 있습니다.</h4>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on March 10, 2023
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="bookAddForm.do">
-                        <h2 class="post-title">Book Add 이동</h2>
-                        <h4 class="post-subtitle">새로운 도서를 등록할 수 있습니다.</h4>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on March 10, 2023
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-
+               	<form action="bookSearchControl.do" method="post">
+                <table class="table">
+                    <tbody>
+                    	<tr >
+                            <td align="center" colspan="2">도서 검색기능 입니다. 원하는 도서의 제목을 입력하세요</td>
+                        </tr>
+                        <tr>
+                            <td>도서의 풀네임</td>
+                            <td><input type="text" name="book_search" placeholder="제목" required="required"></td>
+                        </tr>
+                        <tr>
+                            <td align="center" colspan="2">
+                                <input class="btn btn-primary" type="submit" value="검색">
+                        </tr>
+                    </tbody>
+                </table>
+                </form>
             </div>
         </div>
     </div>
